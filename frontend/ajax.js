@@ -46,21 +46,25 @@ async function betoltInputMezobe(id){
     }
 }
 buttonUpdate.addEventListener("click", async () => {
-    let data = {
-        username: inputusername.value,
-        darab: inputdarab.value
-    };
-    console.log(data);
-    try {
-        const response = await fetch(url, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-        await response.json();
-        beviteliMezoAlaphelyzetbe();
-        getAllUsers();
-    } catch (error) {
-        alert(error);
-    }
+    
+    let html = `<form action="#" method="post">
+
+    <label for="">Azonosító</label>
+    <input type="number" disabled value="" name="azon" id="azon">
+    <br>
+    <label for="">Név</label>
+    <input type="text" value="" name="nev" id="nev">
+    <br>
+    <label for="">Irányítószám</label>
+    <input type="text" value="" name="irszam" id="irszam">
+    <br>
+    <label for="">Született</label>
+    <input type="text" value="" name="szulev" id="szulev">
+    <br>
+    <label for="">Nemzetiség</label>
+    <input type="text" value="" name="orsz" id="orsz">
+    <br>
+
+    <button class="btn btn-info" id="update">Módosít</button>
+   </form>`
 });
